@@ -1,8 +1,8 @@
 from django.shortcuts import render,get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import PersonSerializer
-from .models import person,insurance_dt,medical_history
+from .serializers import PersonSerializer,InsuranceSerializer,MedicalHistorySerializer,CurrentStatusSerializer
+from .models import person,insurance_dt,medical_history,hospitals,current_status
 #import json
 # Create your views here.
 class PersonView(APIView):
@@ -38,3 +38,19 @@ class MedicalHistoryView(APIView):
         med = get_object_or_404(medical_history.objects.all(), nid=fPd)
         serializer = MedicalHistorySerializer(med)
         return Response({"Medical Records":serializer.data})
+
+# class HospitalView(APIView):
+#     def get(self, request, availabil):
+#         med = get_object_or_404(hospitals.objects.all(),)
+
+# class  HospitalView(APIView):
+#     def post (self, request):
+
+class currentStatusView(APIView):
+    def post (self,request):
+        cs = request.data.get('cs')
+        cs_serializer = CurrentStatusSerializer(data=cs)
+        if cs_serializer.is_valid(raise_exception=True):
+            cs_saved = cs_serializer.save()
+
+            return Response({"Sucess":"Current Status for '{}' sent success fully ".format(cs_saved.nid)})

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import PersonView,InsuranceView
+from .views import PersonView,InsuranceView,currentStatusView
 
 app_name = "nida"
 
@@ -9,5 +9,6 @@ app_name = "nida"
 urlpatterns = [
     path('persons/<str:fPd>',PersonView.as_view()),
     path('insurance/<str:fPd>',InsuranceView.as_view()),
-    path('med/<str:fPd>',InsuranceView.as_view())
+    path('med/<str:fPd>',InsuranceView.as_view()),
+    path('cs/', currentStatusView.as_view())
 ]

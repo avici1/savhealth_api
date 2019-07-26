@@ -46,3 +46,12 @@ class hospitals(models.Model):
        
      def __str__(self):
             return self.ho_id
+class current_status(models.Model):
+    nid = models.CharField(max_length=30)
+    additional_info = models.CharField(max_length=300)
+    type_of_injury = models.CharField(max_length=300)
+    drug_provided  = models.CharField(max_length=300)
+    glasgow_coma_scale = models.CharField(max_length=300)
+    def __str__(self):
+        return self.nid
+
