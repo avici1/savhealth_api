@@ -829,7 +829,8 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
-                        "label": "&&Split Terminal"
+                        "label": "&&Split Terminal",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1366,5 +1367,19 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#1e1e1e"
+    "themeBackground": "#1e1e1e",
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/gal1le0/development/native/savhealth/savhealth_api",
+            "backupPath": "/home/gal1le0/development/native/savhealth/savhealth_api/=/Backups/90e9bf4df6915831742c41011027b698",
+            "uiState": {
+                "mode": 0,
+                "x": 0,
+                "y": 54,
+                "width": 1366,
+                "height": 690
+            }
+        },
+        "openedWindows": []
+    }
 }

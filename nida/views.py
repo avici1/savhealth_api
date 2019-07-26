@@ -54,3 +54,10 @@ class currentStatusView(APIView):
             cs_saved = cs_serializer.save()
 
             return Response({"Sucess":"Current Status for '{}' sent success fully ".format(cs_saved.nid)})
+
+    def get(self,request,fPd):
+        cs = get_object_or_404(current_status.objects.all(), nid=fPd)
+        # specify that persons can be many using the "many" param
+        serializer = CurrentStatusSerializer(cs)
+        return Response({"current status ":serializer.data})
+        
